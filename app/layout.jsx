@@ -1,4 +1,5 @@
 import './globals.css';
+import UserAuthenticationContextProvider from '@/utilities/contexts/userAuthentication';
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +9,17 @@ export default function RootLayout({ children }) {
         head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+
+      <body>
+        <main
+          className="container mx-auto
+        "
+        >
+          <UserAuthenticationContextProvider>
+            {children}
+          </UserAuthenticationContextProvider>
+        </main>
+      </body>
     </html>
   );
 }
