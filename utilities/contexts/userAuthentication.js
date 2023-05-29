@@ -8,7 +8,6 @@ import {
   onIdTokenChanged,
   signOut,
 } from 'firebase/auth';
-import firebaseConfig from '../firebase/firebaseconfig';
 import { auth } from '../firebase/firebaseconfig';
 import nookies from 'nookies';
 
