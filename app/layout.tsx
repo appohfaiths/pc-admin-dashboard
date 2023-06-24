@@ -1,5 +1,5 @@
 import './globals.css';
-import UserAuthenticationContextProvider from '@/utilities/contexts/userAuthentication';
+import UserAuthenticationContextProvider from '../utilities/contexts/userAuthentication';
 
 export default function RootLayout({ children }) {
   return (

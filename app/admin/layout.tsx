@@ -1,5 +1,5 @@
-import Sidebar from '@/components/sidebar';
-import TopBar from '@/components/topBar';
+import Sidebar from '../../components/sidebar';
+import TopBar from '../../components/topBar';
 
 export default function AdminLayout({ children }) {
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useAuth } from '@/utilities/contexts/userAuthentication';
+import { useAuth } from '../utilities/contexts/userAuthentication';
 
 export default function Home() {
   const { login } = useAuth();

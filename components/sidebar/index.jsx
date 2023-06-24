@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MdMenu, MdHome, MdCalendarToday, MdDashboard } from 'react-icons/md';
 import { FaChartPie } from 'react-icons/fa';
 import { useState } from 'react';
-import { useAuth } from '@/utilities/contexts/userAuthentication';
+import { useAuth } from '../../utilities/contexts/userAuthentication';
 
 export default function Sidebar() {
   const [showFull, setShowFull] = useState(true);

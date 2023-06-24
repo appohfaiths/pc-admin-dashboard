@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useAuth } from '@/utilities/contexts/userAuthentication';
+import { useAuth } from '../../../utilities/contexts/userAuthentication';
 
 export default function Profile() {
   const { user } = useAuth();
@@ -12,7 +12,7 @@ export default function Profile() {
           <div className="h-10 w-10 rounded-xl relative">
             <Image
               src={user.photoURL}
-              fill="responsive"
+              fill={true}
               className="rounded-full"
               alt="user google profile photo"
             />

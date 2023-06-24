@@ -1,4 +1,4 @@
-import ToDoList from '@/components/admin/todolist';
+import ToDoList from '../../components/admin/todolist'
 
 export default function Admin() {
   return (
