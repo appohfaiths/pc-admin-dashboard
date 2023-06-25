@@ -25,7 +25,8 @@
     "**/*.ts",
     "**/*.tsx",
     "app/page.jsx",
-    "components/sidebar/index.jsx"
+    "components/sidebar/index.jsx",
+    "utilities/contexts/userAuthentication.ts"
   ],
   "exclude": ["node_modules"]
 }
