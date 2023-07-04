@@ -61,7 +61,7 @@ function Login(props: LoginProps) {
           <label htmlFor='password' className='text-left'>Password</label>
           {/* include validation with required or other standard HTML validation rules */}
             <input type='password' placeholder='password' {...register("password", { required: true, minLength: 8 })} />
-            {/* errors will return when field validation fails  */}
+            {/* errors will return when field validation fails */}
        </div>
       
 
