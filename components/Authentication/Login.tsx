@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
-import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from '../../utilities/firebase/firebaseconfig'
+import { auth, signInWithEmailAndPassword } from '../../utilities/firebase/firebaseconfig'
 import { login } from '../../store/features/user/authSlice'
 import { RootState } from '../../store'
 
