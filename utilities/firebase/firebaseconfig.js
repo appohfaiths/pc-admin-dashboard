@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApps } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getAuth, setPersistence } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBZum6AGJSvTtrv_CzR3SVqk4RAiFwQU_8',
@@ -17,7 +17,7 @@ if (typeof window !== undefined && !getApps().length) {
   initializeApp(firebaseConfig);
 }
 
-export const auth = getAuth();
+const auth = getAuth();
 
 export const analytics = () => {
   if (typeof window !== 'undefined') {
@@ -26,5 +26,7 @@ export const analytics = () => {
     return null;
   }
 };
+
+export {auth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut}
 
 export default firebaseConfig;

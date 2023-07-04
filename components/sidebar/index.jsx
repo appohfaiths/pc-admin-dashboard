@@ -4,11 +4,24 @@ import Link from 'next/link';
 import { MdMenu, MdHome, MdCalendarToday, MdDashboard } from 'react-icons/md';
 import { FaChartPie } from 'react-icons/fa';
 import { useState } from 'react';
-import { useAuth } from '../../utilities/contexts/userAuthentication';
+import { useDispatch, useSelector } from 'react-redux';
+import { auth } from '../../utilities/firebase/firebaseconfig';
+import { logout, selectUser } from '../../store/features/user/authSlice';
+import { useRouter } from 'next/navigation';
 
 export default function Sidebar() {
   const [showFull, setShowFull] = useState(true);
-  const { logout } = useAuth();
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  const logoutofApp = () => {
+    dispatch(logout());
+
+    auth.signOut();
+    router.push('/')
+  }
+
+  const user = useSelector(selectUser)
 
   return (
     <section
@@ -54,7 +67,7 @@ export default function Sidebar() {
         </li>
         <li>
           <div>
-            <button onClick={logout}>Logout</button>
+            <button onClick={logoutofApp}>Logout</button>
           </div>
         </li>
       </ul>

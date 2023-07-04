@@ -2,8 +2,8 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
-import { registerUser } from '../../store/features/user/authSlice'
-import { authenticate } from '../../utilities/authentication/auth'
+import { auth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from '../../utilities/firebase/firebaseconfig'
+import { login } from '../../store/features/user/authSlice'
 import { RootState } from '../../store'
 
 type LoginProps = {
@@ -28,19 +28,25 @@ function Login(props: LoginProps) {
     const { email, password } = data
     
     console.log(email, password)
-    
-    try {
-      dispatch(registerUser({ email, password }))
+
+    await signInWithEmailAndPassword(auth, email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+          email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            photoUrl: userAuth.user.photoURL
+        })
+        )
+        router.push('/admin/dashboard')
+      })
+      .catch((err) => {
+      alert(err)
+    })
+
      reset()
-   
-    if (authenticate({email, password})) {
-      router.push('/admin/dashboard')
-    } else {
-      alert('Please enter valid credentials')
-    }
-    } catch (error) {
-      
-   }
+
   }
   
   console.log(watch('email', 'password'))

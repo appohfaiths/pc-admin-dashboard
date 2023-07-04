@@ -15,45 +15,24 @@ const initialState = {
     success: false,
 }
     
-export const registerUser = createAsyncThunk('auth/register', async ({ email, password }: RegisterUserProps, { rejectWithValue }) => {
-    try {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        }
-        await axios.post(`/api/user/register`, { email, password }, config)
-    } catch (error) {
-        if (error.response && error.response.data.message) {
-        return rejectWithValue(error.response.data.message)
-      } else {
-        return rejectWithValue(error.message)
-      }
-    }
-    });
+
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        // Redux actions and reducers go here
+      login: (state, action) => {
+        state.userInfo = action.payload
+      },
+      logout: (state) => {
+        state.userInfo = null
+      }
     },
-    extraReducers: (builder) => {
-        builder.addCase(registerUser.pending, (state) => {
-      state.loading = true;
-    });
-    builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.loading = false;
-        state.userInfo = action.payload;
-        state.success = true
-      state.error = '';
-    });
-    builder.addCase(registerUser.rejected, (state, action) => {
-      state.loading = false;
-      state.userInfo = {};
-      state.error = action.error.message;
-    });
-    }
+   
 });
+
+export const { login, logout } = authSlice.actions;
+
+export const selectUser = (state) => state.auth.userInfo;
 
 export default authSlice.reducer
