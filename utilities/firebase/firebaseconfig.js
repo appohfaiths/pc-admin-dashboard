@@ -4,13 +4,13 @@ import { getAnalytics } from 'firebase/analytics';
 import { getAuth, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBZum6AGJSvTtrv_CzR3SVqk4RAiFwQU_8',
-  authDomain: 'pc-admin-dashboard.firebaseapp.com',
-  projectId: 'pc-admin-dashboard',
-  storageBucket: 'pc-admin-dashboard.appspot.com',
-  messagingSenderId: '726847720811',
-  appId: '1:726847720811:web:798317f6db545afcd9902e',
-  measurementId: 'G-Z4G75V8N61',
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 if (typeof window !== undefined && !getApps().length) {

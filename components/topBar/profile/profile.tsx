@@ -1,10 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import { useAuth } from '../../../utilities/contexts/userAuthentication';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../../store/features/user/authSlice';
+import { useEffect } from 'react';
 
 export default function Profile() {
-  const { user } = useAuth();
+  const user = useSelector(selectUser)
+
+  useEffect(() => {
+    console.log(user)
+  }, [user])
+
   return (
     <div className="flex flex-col">
       {user && (
@@ -17,7 +24,7 @@ export default function Profile() {
               alt="user google profile photo"
             />
           </div>
-          <h4>{user.displayName}</h4>
+          <h4>{user.email}</h4>
         </div>
       )}
     </div>
