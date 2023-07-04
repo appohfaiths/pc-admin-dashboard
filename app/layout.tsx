@@ -1,5 +1,6 @@
 import './globals.css';
 import UserAuthenticationContextProvider from '../utilities/contexts/userAuthentication';
+import { Providers } from '../store/provider';
 
 export default function RootLayout({ children }) {
   return (
@@ -15,9 +16,10 @@ export default function RootLayout({ children }) {
           className="container mx-auto
         "
         >
-          <UserAuthenticationContextProvider>
+          <Providers>
             {children}
-          </UserAuthenticationContextProvider>
+      </Providers>
+            
         </main>
       </body>
     </html>
