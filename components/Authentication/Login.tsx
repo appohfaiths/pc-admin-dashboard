@@ -30,7 +30,7 @@ function Login(props: LoginProps) {
     console.log(email, password)
     
     try {
-      dispatch(register({ email, password }))
+      dispatch(registerUser({ email, password }))
      reset()
    
     if (authenticate({email, password})) {
