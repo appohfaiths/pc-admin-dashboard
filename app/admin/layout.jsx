@@ -1,20 +1,10 @@
 'use client';
-import { useLayoutEffect } from 'react';
-import { redirect } from 'next/navigation';
-import { useSelector } from 'react-redux';
+import isAuth from '../../components/Authentication/isAuth'
 
 import Sidebar from '../../components/sidebar';
 import TopBar from '../../components/topBar';
 
-export default function AdminLayout({ children }) {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
-  useLayoutEffect(() => {
-    const isAuth = isAuthenticated;
-    if (!isAuth) {
-      redirect("/")
-    }
-  },[])
+ const AdminLayout = ({ children }) => {
   
   return (
     <main>
@@ -26,3 +16,5 @@ export default function AdminLayout({ children }) {
     </main>
   );
 }
+
+export default isAuth(AdminLayout);
