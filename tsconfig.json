@@ -24,9 +24,9 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app/page.tsx",
+    "app/page.jsx",
     "components/sidebar/index.tsx",
     "utilities/contexts/userAuthentication.ts"
-, "utilities/authentication/withAuth.js"  ],
+, "utilities/authentication/withAuth.js", "store/index.ts", "store/features/user/authSlice.ts", "app/admin/layout.jsx"  ],
   "exclude": ["node_modules"]
 }

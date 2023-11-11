@@ -67,7 +67,7 @@ export default function Sidebar() {
         </li>
         <li>
           <div>
-            <button onClick={logoutofApp}>Logout</button>
+            <button onClick={() =>  logoutofApp()}>Logout</button>
           </div>
         </li>
       </ul>

@@ -71,7 +71,7 @@ function Login(props: LoginProps) {
        </div>
       
 
-      <input type="submit" value="Login"/>
+      <input className='cursor-pointer' type="submit" value="Login"/>
       </div>
     </form>
   )

@@ -1,11 +1,7 @@
+import { s } from "@fullcalendar/core/internal-common";
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
-
-type RegisterUserProps  = {
-    email: string
-    password: string
-}
 
 const initialState = {
     loading: false,
@@ -13,6 +9,7 @@ const initialState = {
     userToken: null,
     error: null,
     success: false,
+    isAuthenticated: false,
 }
     
 const authSlice = createSlice({
@@ -20,10 +17,18 @@ const authSlice = createSlice({
     initialState,
     reducers: {
       login: (state, action) => {
-        state.userInfo = action.payload
+            return {
+                ...state,
+                userInfo: action.payload,
+                isAuthenticated: true
+        }
       },
       logout: (state) => {
-        state.userInfo = null
+          return {
+              ...state,
+              userInfo: null,
+              isAuthenticated: false
+        }
       }
     },
    
