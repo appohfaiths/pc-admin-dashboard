@@ -1,4 +1,3 @@
-import { s } from "@fullcalendar/core/internal-common";
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
@@ -38,4 +37,4 @@ export const { login, logout } = authSlice.actions;
 
 export const selectUser = (state) => state.auth.userInfo;
 
-export default authSlice.reducer
+export default authSlice.reducer;
